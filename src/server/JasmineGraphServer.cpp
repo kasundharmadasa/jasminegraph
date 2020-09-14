@@ -421,7 +421,7 @@ void JasmineGraphServer::resolveOperationalGraphs(){
               server->h_length);
         serv_addr.sin_port = htons(workerPort);
         if (connect(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
-            std::cerr << "ERROR connecting" << std::endl;
+            std::cerr << "ERROR connecting to worker" << std::endl;
             //TODO::exit
         }
 
