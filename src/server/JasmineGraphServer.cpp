@@ -300,7 +300,9 @@ void JasmineGraphServer::startRemoteWorkers(std::vector<int> workerPortsVector, 
     } else if (profile == "docker") {
         for (int i =0 ; i < workerPortsVector.size() ; i++) {
             if (masterHost == host || host == "localhost") {
-                serverStartScript = "docker run -v " + instanceDataFolder + ":" + instanceDataFolder + " -p " +
+                serverStartScript = "docker run -v " + instanceDataFolder + ":" + instanceDataFolder +
+                        "-v \"/var/tmp/jasminegraph:/var/tmp/jasminegraph\""
+                        " -p " +
                                     std::to_string(workerPortsVector.at(i)) + ":" +
                                     std::to_string(workerPortsVector.at(i)) + " -p " +
                                     std::to_string(workerDataPortsVector.at(i)) + ":" +
