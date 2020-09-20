@@ -269,7 +269,7 @@ void JasmineGraphServer::startRemoteWorkers(std::vector<int> workerPortsVector, 
     std::string artifactPath = utils.getJasmineGraphProperty("org.jasminegraph.artifact.path");
     std::string instanceDataFolder = utils.getJasmineGraphProperty("org.jasminegraph.server.instance.datafolder");
     std::string jasmineGraphExecutableName = Conts::JASMINEGRAPH_EXECUTABLE;
-    server_logger.log("###MASTER#### Starting remote workers for profile " + profile, "info");
+    server_logger.log("Debug : ###MASTER#### Starting remote workers for profile " + profile, "info");
     if (hasEnding(workerPath,"/")) {
         executableFile = workerPath + jasmineGraphExecutableName;
     } else {
@@ -301,7 +301,7 @@ void JasmineGraphServer::startRemoteWorkers(std::vector<int> workerPortsVector, 
         for (int i =0 ; i < workerPortsVector.size() ; i++) {
             if (masterHost == host || host == "localhost") {
                 serverStartScript = "docker run -v " + instanceDataFolder + ":" + instanceDataFolder +
-                     //   " -v \"/var/tmp/jasminegraph:/var/tmp/jasminegraph\"" +
+                        " -v \"/var/tmp/jasminegraph:/var/tmp/jasminegraph\"" +
                         " -p " +
                                     std::to_string(workerPortsVector.at(i)) + ":" +
                                     std::to_string(workerPortsVector.at(i)) + " -p " +
