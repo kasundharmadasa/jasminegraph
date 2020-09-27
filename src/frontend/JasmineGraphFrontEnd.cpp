@@ -825,7 +825,7 @@ void *frontendservicesesion(std::string masterIP, int connFd, SQLiteDBInterface 
 
             if (!JasmineGraphFrontEnd::isGraphActive(graphID, sqlite)) {
                 frontend_logger.log("Graph is not in the operational state", "error");
-                break;
+                continue;
             }
 
             JasminGraphTrainingInitiator *jasminGraphTrainingInitiator = new JasminGraphTrainingInitiator();
