@@ -2130,6 +2130,7 @@ void JasmineGraphServer::updateOperationalGraphList() {
                            to_string(Conts::GRAPH_STATUS::OPERATIONAL) + "' ELSE '" +
                            to_string(Conts::GRAPH_STATUS::NONOPERATIONAL) + "' END )";
     this->sqlite.runUpdate(sqlStatement2);
+    cout << "Updating graph id " << graphIDs << endl;
 }
 
 std::map<string, JasmineGraphServer::workerPartitions> JasmineGraphServer::getGraphPartitionedHosts(string graphID) {
