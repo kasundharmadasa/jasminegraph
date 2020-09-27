@@ -2124,6 +2124,8 @@ void JasmineGraphServer::updateOperationalGraphList() {
             graphIDs += (j->second + ", ");
         }
     }
+    cout << "Updating graph id got for non update" << graphIDs << endl;
+
     graphIDs = graphIDs.substr(0, graphIDs.size() - 2);
     string sqlStatement2 = "UPDATE graph SET graph_status_idgraph_status = ("
                            "CASE WHEN idgraph IN (" + graphIDs + ") THEN '" +
