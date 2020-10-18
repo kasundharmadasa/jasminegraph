@@ -2122,6 +2122,7 @@ void JasmineGraphServer::updateOperationalGraphList() {
     for (std::vector<vector<pair<string, string>>>::iterator i = v.begin(); i != v.end(); ++i) {
         for (std::vector<pair<string, string>>::iterator j = (i->begin()); j != i->end(); ++j) {
             graphIDs += (j->second + ", ");
+            cout << "Updating graph id got for non update this graph id" << j->second << endl;
         }
     }
     cout << "Updating graph id got for non update" << graphIDs << endl;
