@@ -2118,7 +2118,14 @@ void JasmineGraphServer::updateOperationalGraphList() {
                            "(" + hosts + ") GROUP BY b.partition_graph_idgraph HAVING COUNT(b.partition_idpartition)= "
                            "(SELECT COUNT(a.idpartition) FROM partition AS a "
                            "WHERE a.graph_idgraph = b.partition_graph_idgraph);");
-    std::vector<vector<pair<string, string>>> v = this->sqlite.runSelect(sqlStatement);
+
+    cout << "sql query ===== " << sqlStatement << endl;
+
+
+         std::vector<vector<pair<string, string>>> v = this->sqlite.runSelect(sqlStatement);
+    cout << "sql query length ===== " << v.size() << endl;
+
+
     for (std::vector<vector<pair<string, string>>>::iterator i = v.begin(); i != v.end(); ++i) {
         for (std::vector<pair<string, string>>::iterator j = (i->begin()); j != i->end(); ++j) {
             graphIDs += (j->second + ", ");
